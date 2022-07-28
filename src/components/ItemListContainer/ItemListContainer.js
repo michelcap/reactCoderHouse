@@ -1,7 +1,24 @@
-const ItemListContainer = ({greeting}) => {
-    return (
-        <h1>{greeting}</h1>
-    )
-}
+import { useState, useEffect } from 'react';
 
-export default ItemListContainer
+import { getProductsVehiculos } from '../../asyncMock';
+
+import ItemList from '../ItemList/ItemList'
+
+
+const ItemListContainer = ({ greeting }) => {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        getProductsVehiculos().then((products) => { 
+            setProducts(products); 
+        });
+    }, []);
+
+    return (
+        <>
+            <ItemList products={products}/>
+        </>
+    );
+};
+
+export default ItemListContainer;
