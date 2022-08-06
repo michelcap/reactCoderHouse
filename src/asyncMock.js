@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react';
-
 export const getProductsVehiculos = () => {
 
     return new Promise((resolve) => {
-        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=vehiculos`)
+        fetch(`https://api.mercadolibre.com/sites/MLU/search?q=vehiculos`)
             .then(response => response.json())
             .then(json => {
                 resolve(json.results);
@@ -22,7 +20,7 @@ export const getProductsById = (productId) => {
 
 export const getProductsByCategory = (categoryId) => {
     return new Promise((resolve) => {
-        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${categoryId}`)
+        fetch(`https://api.mercadolibre.com/sites/MLU/search?q=${categoryId}`)
             .then(response => response.json())
             .then(json => {
                 resolve(json.results);                

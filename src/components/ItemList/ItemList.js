@@ -1,12 +1,8 @@
 import Item from "../Item/Item";
-import { useState, useEffect } from 'react';
-
 
 const ItemList = ({ products }) => {
 
-    useEffect(() => {
-        localStorage.setItem('products', JSON.stringify(products));
-      }, [products]);    
+    localStorage.setItem('products', JSON.stringify(products));
 
     return (
         <div class='row justify-content-evenly'>

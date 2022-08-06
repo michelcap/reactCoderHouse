@@ -1,3 +1,26 @@
+# Proyecto Ventas de Automoviles
+El proyecto consta del desarrollo de un marketplace de automóviles basados en los recursos de la API de mercado libre.
+Como primer proyecto desarrollado en REACT se buscó introducir conceptos básicos pero valiosos para comenzar a interpretar
+el lenguaje.
+
+# App.js 
+→ Contendrá la lógica principal de la app y en la misma se incluirá el elemento BrowserRouter
+ 
+# asyncMock 
+→ Será la que tendrá la funcionalidad de API para el proyecto general, en el caso particular de este proyecto tendrá el llamado a la API secundaria de mercado libre
+ 
+# ItemListContainer 
+→ contendrá el llamado asyncMock que devolverá todos los productos o filtrado por categoría. Luego listara los productos en tarjetas para ello recurre ItemList
+ 
+# ItemList 
+→ Listara los productos según las especificaciones de ItemListContainer haciendo uso de la función map() y que recurrirá a Item para el despliegue
+ 
+# Item 
+→ Desplegará haciendo uso del formato de una tarjeta la información enviada por ItemLIst
+ 
+# ItemDetailContainer 
+→ a través del uso de las funciones de asyncMock y de otros elementos creados desplegará los detalles específicos del producto que el usuario lo requiera.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
