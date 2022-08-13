@@ -21,7 +21,8 @@ const ItemDetailContainer = () => {
     return (
         <div class='d-flex justify-content-center'>
             <ItemDetail {...product}/>
-        </div>)
+        </div>
+        )
 }
 
 export default ItemDetailContainer

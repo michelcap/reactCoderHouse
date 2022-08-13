@@ -1,23 +1,10 @@
-const ItemDetailList = ({ product }) => {
+const ItemDetailList = ({ atribute }) => {
 
-    // {product.map((item, index) => 
-    //     (console.log(item.id)) 
-    //     (console.log(index))
-    // )}
-    // let board = Array(2).fill(0).map(row => new Array(3).fill(1))
-    // console.log(board)
-    // p.map((items,index) => {
-    //     return(
-    //         items.map((subItems,sIndex) => {
-    //         return(console.log(subItems))
-    //     }))
-
-    // })
     const attrib = ['ITEM_CONDITION', 'KILOMETERS', "VEHICLE_YEAR", 'TRANSMISSION', 'POWER', "ENGINE", "FUEL_TYPE"];
     const valuesArray = {};
 
     attrib.map(attr => {
-        return product.map(att => {
+        return atribute.map(att => {
             if (att.id === attr) {
                 return (valuesArray[attr] = att.value_name);
             } else {

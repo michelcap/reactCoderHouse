@@ -1,19 +1,30 @@
 import ItemDetailList from "../ItemDetailList/ItemDetailList";
-import { useState, useEffect } from 'react';
+import ItemCounter from "../ItemCounter/ItemCounter";
+import CartContext from '../../context/CartContext'
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect, useContext } from 'react';
 
-const ItemDetail = ({ title, thumbnail, attributes }) => {
+const ItemDetail = ({ id, price, title, thumbnail, attributes, order_backend }) => {
 
-    const [product, setProduct] = useState([]);
+    const [att, setAtt] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        setProduct(attributes);
+        setAtt(attributes);
     }, [attributes]);
 
-    return (
-        <div class='w-50 m-5' >
+    const {getProductQuantity} = useContext(CartContext)
+    const productQuantity = getProductQuantity(id)
 
-            <div class="card mb-3">
+    return (
+        <div class='m-3'>
+            <div class="card m-3">
                 <div class="row g-0">
+                    <header >
+                        <button class='bg-primary border-primary'
+                            onClick={() => navigate(-1)}><i class="bi bi-arrow-90deg-left text-light fs-4"></i>
+                        </button>
+                    </header>
                     <picture class="col-md-4">
                         <img class="card-img m-1" src={thumbnail} alt={title} />
                     </picture>
@@ -21,10 +32,14 @@ const ItemDetail = ({ title, thumbnail, attributes }) => {
                         <div class="card-body">
                             <h5 class="card-title">{title}</h5>
                             <ul class="list-group list-group-flush">
-                                <ItemDetailList product={product}/>
+                                <ItemDetailList atribute={att} />
                             </ul>
                         </div>
                     </div>
+                    <footer class='card-footer text-center'>
+                        <p class="card-text fs-6">Stock disponible: {order_backend}</p>
+                        <ItemCounter id={id} price={price} title={title} stock={order_backend} initial={productQuantity}/>
+                    </footer>
                 </div>
             </div>
         </div>
