@@ -1,6 +1,6 @@
 import ItemDetailList from "../ItemDetailList/ItemDetailList";
 import ItemCounter from "../ItemCounter/ItemCounter";
-import CartContext from '../../context/CartContext'
+import CartContext from '../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 
@@ -17,7 +17,7 @@ const ItemDetail = ({ id, price, title, thumbnail, attributes, order_backend }) 
     const productQuantity = getProductQuantity(id)
 
     return (
-        <div class='m-3'>
+        <div class='m-3 shadow-lg p-3 mb-5 bg-white rounded'>
             <div class="card m-3">
                 <div class="row g-0">
                     <header >
@@ -38,7 +38,7 @@ const ItemDetail = ({ id, price, title, thumbnail, attributes, order_backend }) 
                     </div>
                     <footer class='card-footer text-center'>
                         <p class="card-text fs-6">Stock disponible: {order_backend}</p>
-                        <ItemCounter id={id} price={price} title={title} stock={order_backend} initial={productQuantity}/>
+                        <ItemCounter id={id} price={price} title={title} thumbnail={thumbnail} stock={order_backend} initial={productQuantity}/>
                     </footer>
                 </div>
             </div>

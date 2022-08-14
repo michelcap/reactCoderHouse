@@ -4,7 +4,6 @@ import CartWidget from "../CartWidget/CartWidget";
 
 const Navbar = () => {
     return (
-
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid justify-content-evenly">
                 <div>
@@ -15,7 +14,7 @@ const Navbar = () => {
                 </div>
                 <div class="btn-group">
                     <Link class='btn btn-primary' to='category/sedan'>Sedan</Link>
-                    <Link class='btn btn-primary' to='category/hatchback'>Hatch</Link>
+                    <Link class='btn btn-primary' to='category/hatch'>Hatch</Link>
                     <Link class='btn btn-primary' to='category/suv'>SUVs</Link>
                     <Link class='btn btn-primary' to='category/pickup'>Pick Up</Link>
                     <Link class='btn btn-primary' to='category/furgon'>Furgón</Link>
