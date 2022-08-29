@@ -1,38 +1,17 @@
-import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemList from '../ItemList/ItemList';
-import { getDocs, collection } from 'firebase/firestore';
-import { db } from '../../services/firebase';
+import {getListContainer} from '../../services/firebase/firestore'
+import {useAsync} from '../../hooks/useAsync'
 
 const ItemListContainer = () => {
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [gobalCategoryId, setGlobalCategoryId] = useState()
 
     const { categoryId } = useParams();
-
-    useEffect(() => {
-        setLoading(true);
-
-        const reference = categoryId ? categoryId : 'products'
-        setGlobalCategoryId(reference)
-
-        getDocs(collection(db, reference)).then(response => {
-            const productsAdapted = response.docs.map(doc => {
-                const data = doc.data();
-                return {id: doc.id, ...data}
-            });
-            setProducts(productsAdapted)
-        }).catch(error => {
-            console.log(error)
-        }).finally(() => {
-            setLoading(false)
-        })
-    }, [categoryId]);
+    const asyncGetListContainer = () => getListContainer(categoryId)
+    const {data, error, isLoading} = useAsync(asyncGetListContainer, [categoryId])
     
     const greeting = categoryId ? `Filtrado: ${categoryId.toUpperCase()}` : 'Todos Los Productos';
 
-    if (loading) {
+    if (isLoading) {
         return (
             <picture class='d-flex justify-content-center'>
                 <img src={"../../animation/loading.svg"} alt='loading' />
@@ -40,10 +19,16 @@ const ItemListContainer = () => {
         );
 
     }
+    if (error) {
+        return (
+            <h1>ERROR INTENTE MAS TARDE</h1>
+        )
+    }
+
     return (
         <div class='container text-center'>
             <h2 class='h2'>{greeting}</h2>
-            <ItemList products={products} categoryId={gobalCategoryId}/>
+            <ItemList products={data} categoryId={categoryId}/>
         </div>
     );
 };

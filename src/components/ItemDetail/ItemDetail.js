@@ -4,7 +4,7 @@ import CartContext from '../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 
-const ItemDetail = ({ id, price, title, thumbnail, attributes, order_backend }) => {
+const ItemDetail = ({ id, price, title, thumbnail, attributes, order_backend, type}) => {
 
     const [att, setAtt] = useState([]);
     const navigate = useNavigate();
@@ -38,7 +38,7 @@ const ItemDetail = ({ id, price, title, thumbnail, attributes, order_backend }) 
                     </div>
                     <footer class='card-footer text-center'>
                         <p class="card-text fs-6">Stock disponible: {order_backend}</p>
-                        <ItemCounter id={id} price={price} title={title} thumbnail={thumbnail} stock={order_backend} initial={productQuantity}/>
+                        <ItemCounter id={id} price={price} title={title} thumbnail={thumbnail} stock={order_backend} initial={productQuantity} type={type}/>
                     </footer>
                 </div>
             </div>

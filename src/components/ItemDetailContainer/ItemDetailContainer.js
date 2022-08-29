@@ -1,44 +1,35 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getDocs, collection, query, where } from 'firebase/firestore';
-import { db } from '../../services/firebase';
+// import { getDocs, collection, query, where } from 'firebase/firestore';
+// import { db } from '../../services/firebase';
 import ItemDetail from '../ItemDetail/ItemDetail';
 
+import {getDetailContainer} from '../../services/firebase/firestore'
+import {useAsync} from '../../hooks/useAsync'
+
 const ItemDetailContainer = () => {
-    const [product, setProduct] = useState();
-    const [loading, setLoading] = useState(true);
 
     const { productId } = useParams();
-    const { categoryId } = useParams();
 
-    useEffect(() => {
-        setLoading(true);
+    const asyncGetDetailContainer = () => getDetailContainer(productId)
+    const {data, error, isLoading} = useAsync(asyncGetDetailContainer, [productId])
 
-        const reference = query(collection(db, categoryId), where('id', '==', productId))
-        getDocs(reference).then(response => {
-
-            const productsAdapted = response.docs.map(doc => {
-                const data = doc.data();
-                return {...data}
-            });
-            setProduct(productsAdapted[0])
-        }).catch(error => {
-            console.log(error);
-        }).finally(() => {
-            setLoading(false)
-        });
-    }, [productId, categoryId]);
-
-    if (loading) {
+    if (isLoading) {
         return (
             <picture class='d-flex justify-content-center'>
                 <img src={"../../animation/loading.svg"} alt='loading' />
             </picture>
         );
     }
+    if (error) {
+        return (
+            <h1>ERROR INTENTE MAS TARDE</h1>
+        )
+    }
+
     return (
         <div class='d-flex justify-content-center'>
-            <ItemDetail {...product} />
+            <ItemDetail {...data} />
         </div>
     );
 };

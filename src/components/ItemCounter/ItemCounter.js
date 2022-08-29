@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from 'react-router-dom';
 import CartContext from '../../context/CartContext';
 
-const ItemCounter = ({ id, price, title, thumbnail, stock, initial = 1 }) => {
+const ItemCounter = ({ id, price, title, thumbnail, stock, initial = 1, type}) => {
 
     const [count, setCount] = useState(initial);
     const [quantityToAdd, setQuantityToAdd] = useState(0);
@@ -31,7 +31,7 @@ const ItemCounter = ({ id, price, title, thumbnail, stock, initial = 1 }) => {
         const quantity = count;
 
         const productToAdd = {
-            id, title, price, thumbnail, quantity
+            id, title, price, thumbnail, quantity, type
         };
 
         addItem(productToAdd);

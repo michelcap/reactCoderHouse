@@ -11,7 +11,7 @@ const Item = ({ products, categoryId}) => {
             </picture>
             <section class="card-body">
                 <p class="card-text fs-6 fw-bolder">Precio: {products.price} usd</p>
-                <Link to={`/detail/${categoryId}/${products.id}`} class="btn btn-light">Ver detalle del producto</Link>
+                <Link to={`/detail/${products.id}`} class="btn btn-light">Ver detalle del producto</Link>
                 <p class="card-text fs-6">Stock disponible: {products.order_backend}</p>
             </section>
         </article>

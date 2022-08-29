@@ -1,6 +1,7 @@
 import ItemCart from '../ItemCart/ItemCart';
-import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
 
 const ItemListCart = ({ cart }) => {
 
@@ -18,7 +19,7 @@ const ItemListCart = ({ cart }) => {
                     </div>
                     <p class="card-text fs-6 fw-bolder col-sm m-0 p-2">Total: {total} usd</p>
                     <div class="card-text fs-6 col-sm m-0 p-2">
-                        <button type="button" class="btn btn-outline-success btn-sm text-center fs-6">Crear Orden</button>
+                        <Link type="button" class="btn btn-outline-success btn-sm text-center fs-6" to={`/checkout`}>Crear Orden</Link>
                     </div>
                 </section>
             </article>
