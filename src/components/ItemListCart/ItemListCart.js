@@ -1,4 +1,5 @@
 import ItemCart from '../ItemCart/ItemCart';
+import Form from '../Form/Form';
 import CartContext from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
@@ -12,6 +13,9 @@ const ItemListCart = ({ cart }) => {
     return (
         <div class='row justify-content-evenly'>
             {cart.map(prod => <ItemCart key={prod.id} product={prod} />)}
+            <article class='card text-center w-75 m-2 p-2 shadow-lg bg-white rounded'>
+                <Form />
+            </article>
             <article class='card text-center w-75 m-2 p-2 shadow-lg bg-white rounded'>
                 <section class="card-body row p-0 m-0 text-center align-items-center">
                     <div class="card-text fs-6 col-sm m-0 p-2">
