@@ -3,6 +3,9 @@ El proyecto consta del desarrollo de un marketplace de automóviles basados en l
 Como primer proyecto desarrollado en REACT se buscó introducir conceptos básicos pero valiosos para comenzar a interpretar
 el lenguaje.
 
+### GIF
+En la carpeta gif se encuentra una breve precentacion del proyecto para dar una rapida demostracion de las funcionalidades
+
 ### App.js 
 → Contendrá la lógica principal de la app y en la misma se incluirá el elemento BrowserRouter
 
