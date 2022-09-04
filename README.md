@@ -5,21 +5,59 @@ el lenguaje.
 
 ### App.js 
 → Contendrá la lógica principal de la app y en la misma se incluirá el elemento BrowserRouter
- 
-### asyncMock 
-→ Será la que tendrá la funcionalidad de API para el proyecto general, en el caso particular de este proyecto tendrá el llamado a la API secundaria de mercado libre
- 
-### ItemListContainer 
-→ contendrá el llamado asyncMock que devolverá todos los productos o filtrado por categoría. Luego listara los productos en tarjetas para ello recurre ItemList
- 
+
+### CartWidget.js 
+→ Contendrá la cantidad de productos ingresado hasta el momento
+
+### Checkout.js 
+→ sera el encargado de procesar la orden aceptando o rechzando los productos segun corresponda de la
+    trabajara sinconozado con firebase para asegurar el stock de la orden
+
+### Form.js 
+→ Formulario en el cual el usuario completara la sus datos personales para que la orden sea personalizada a cada comprador
+
+### ItemCart.js 
+→ Desplegará haciendo uso del formato de una tarjeta la información de cada producto agregado al carrito de comprasion
+
+### ItemCartContainer.js 
+→ Contrendra el despliegue de la lista de compra hasta el momento ingresada en el carrito
+
+### ItemCounter.js 
+→ Sera el encargado de manejar el aumento o disminucion de la cantidad de cada producto que el usuario quiera comprar controlando
+ los topes segun el limite de stock que existe hasta el momento.
+
+### ItemDetail.js 
+→ Desplegara el detalle del producto para que el usuario estudie si el producto se ajusta a sus necesidades
+
+### ItemDetailContainer.js 
+→ Contendra a todos los elementos dedicados al despliegue de la informacion del detalle del producto
+
+### ItemDetailList.js 
+→ Desplegara un listado de especificaciones tecnicas del producto
+
 ### ItemList 
 → Listara los productos según las especificaciones de ItemListContainer haciendo uso de la función map() y que recurrirá a Item para el despliegue
- 
+
+### ItemListCart
+→ Listara los productos que hasta el momento fueron ingresados al carrito de compra
+
+### ItemListContainer 
+→ devolverá todos los productos o filtrado por categoría. Luego listara los productos en tarjetas para ello recurre ItemList
+
 ### Item 
-→ Desplegará haciendo uso del formato de una tarjeta la información enviada por ItemLIst
+→ Desplegará haciendo uso del formato de una tarjeta la información recibida de ItemLIst
  
 ### ItemDetailContainer 
-→ a través del uso de las funciones de asyncMock y de otros elementos creados desplegará los detalles específicos del producto que el usuario lo requiera.
+→ a través del uso de las funciones de firebase y de otros elementos creados desplegará los detalles específicos del producto que el usuario lo requiera.
+
+### Navbar
+→ Permitira de formasencilla clasificar alos productos en 5 categorias, seda, hatch, suvs, pickupo furgon
+
+### CartContex
+→ Sera el encargado de manejar toda la logica necesaria para la gestion del carrito de compras
+
+### firebase/index
+→ contendran las especificaciones necesarias para la conexion a la base de datos
 
 # Getting Started with Create React App
 

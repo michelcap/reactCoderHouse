@@ -128,6 +128,7 @@ const Checkout = () => {
     };
 
     if (isLoading) {
+        console.log('load')
         return (
             <picture class='d-flex justify-content-center'>
                 <img src={"../../animation/loading.svg"} alt='loading' />
